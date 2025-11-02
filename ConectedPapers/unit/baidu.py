@@ -46,11 +46,11 @@ def baidu_trans(query):
             try:
                 r = requests.post(url, params=payload, headers=headers)
             except (requests.exceptions.SSLError, requests.exceptions.ConnectionError) as e:
-                if 'bad handshake' in str(e) or '10054' in str(e):  # 上述2种异常
-                    continue  # 继续发请求
+                if 'bad handshake' in str(e) or '10054' in str(e):
+                    continue  
                 else:
-                    raise Exception(e)  # 其他异常，抛出来
-            break  # 无异常就跳出循环
+                    raise Exception(e)
+            break
         # time.sleep(5)
         result = json.loads(r.text)
 

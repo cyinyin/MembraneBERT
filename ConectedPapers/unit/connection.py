@@ -23,13 +23,12 @@ def build_graph_from_title(driver: webdriver, title, sqlite: Sqlite, wait_time, 
     desired_capabilities["pageLoadStrategy"] = "none"
     # driver_path = 'D:/downloads/chromedriver-win64/chromedriver.exe'
     # options = webdriver.ChromeOptions()
-    # # 配置页面加载策略
     # options.page_load_strategy = 'eager'
     # options.add_experimental_option("useAutomationExtension", False)
     # options.add_experimental_option("excludeSwitches", ["enable-automation"])
     # driver = webdriver.Chrome(executable_path=driver_path, chrome_options=options)
     try:
-        # 关系图链接
+        # Relationship graph link
         try:
 
             res = sqlite.select_url_from_paper(title)
@@ -39,10 +38,10 @@ def build_graph_from_title(driver: webdriver, title, sqlite: Sqlite, wait_time, 
         except WebDriverException:
             print(WebDriverException)
         else:
-            # 访问搜索首页
+            # Access the search homepage
             driver.get('https://www.connectedpapers.com/')
 
-            # 输入标题
+            # Enter title
             search_bar = WebDriverWait(driver=driver, timeout=wait_time, poll_frequency=0.5).until(
                 EC.visibility_of_element_located((By.XPATH, '/html/body/div/div/div[2]/div/div[1]/div/div/div[1]/div/form/input'))
             )
@@ -50,7 +49,7 @@ def build_graph_from_title(driver: webdriver, title, sqlite: Sqlite, wait_time, 
             search_bar.send_keys(title)
             # driver.find_elements(By.ID, 'searchbar-input')[1].send_keys(title)
 
-            # 点击搜索
+            # Click search
             WebDriverWait(driver=driver, timeout=wait_time, poll_frequency=0.5).until(
                 EC.visibility_of_element_located(
                     (By.XPATH,  '//*[@id="desktop-app"]/div[2]/div/div[1]/div/div/div[1]/button')
@@ -62,24 +61,23 @@ def build_graph_from_title(driver: webdriver, title, sqlite: Sqlite, wait_time, 
 
             # print(driver.current_url)
 
-            # 跳转到搜索结果页面
+            # Navigate to the search results page
             res = WebDriverWait(driver=driver, timeout=wait_time, poll_frequency=0.5).until(
                 EC.visibility_of_all_elements_located((By.TAG_NAME, "article"))
             )
             # res = driver.find_elements(By.TAG_NAME, "article")
 
             if len(res) != 0:
-                # 访问第一个搜索结果
+                # Access the first search result
                 res[0].click()
 
-                # 当前关系图链接
                 # url = driver.current_url
 
             else:
                 log.append(f'Warning: without graph information. {title}')
                 return []
 
-        # 根据链接爬信息
+        # Scrape information based on the link
         return paper_graph_information(driver, sqlite, wait_time, log) # driver,
 
     except Exceptions.NoSuchElementException as e:
@@ -95,7 +93,6 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
     desired_capabilities["pageLoadStrategy"] = "none"
     # driver_path = 'D:/downloads/chromedriver-win64/chromedriver.exe'
     # options = webdriver.ChromeOptions()
-    # # 配置页面加载策略
     # options.page_load_strategy = 'eager'
     # options.add_experimental_option("useAutomationExtension", False)
     # options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -104,7 +101,6 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
     try:
         log.append(f'Paper graph information: {driver.current_url}')
 
-        # 相关文献信息
         desired_capabilities = DesiredCapabilities.CHROME
         desired_capabilities["pageLoadStrategy"] = "none"
         papers = WebDriverWait(driver=driver, timeout=wait_time, poll_frequency=0.5).until(
@@ -124,9 +120,7 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
         # paper_connection = []
         for index, paper in enumerate(papers):
             paper_info = []
-            # 鼠标移动到论文上来，以显示详细信息
             ActionChains(driver).move_to_element(paper).perform()
-            # 标题 同时获取 semantic_scholar_url
             a = WebDriverWait(driver=driver, timeout=wait_time, poll_frequency=0.5).until(
                 EC.visibility_of_element_located(
                     (By.XPATH, '//*[@id="desktop-app"]/div[2]/div[4]/div[3]/div/div[2]/div[1]/div/a')
@@ -138,7 +132,6 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
             if title[-1] == '.':
                 title = title[:-1]
 
-            # 检查, 如果第一个标题在图里，直接返回数据
             if index == 0 and sqlite.check_title_is_exists_in_graph(title):
                 return sqlite.select_connection_from_graph(title)
 
@@ -149,15 +142,14 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
             paper_connection.append(title)
             # print(title)
 
-            # 如果已经有了，跳过
             if sqlite.check_title_is_exists(title):
                 continue
 
-            # 作者
+            # Author
             div = driver.find_element(By.XPATH, '//*[@id="desktop-app"]/div[2]/div[4]/div[3]/div/div[2]/div[2]/div/div')
             author = div.text.strip()
             paper_info.append(author)
-            # year journal: 他俩之间可能是逗号，空格分割，或者只有年份没有期刊
+            # year journal
             # //*[@id="desktop-app"]/div[2]/div[4]/div[3]/div/div[2]/div[3]/div[1]
             div = driver.find_element(By.XPATH, '//*[@id="desktop-app"]/div[2]/div[4]/div[3]/div/div[2]/div[3]/div[1]')
             text = div.text.strip()
@@ -180,7 +172,7 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
             citations = text[:index_t].strip()
             paper_info.append(citations)
 
-            # 年均引用
+            # Average annual citations
             curr_year = today.year  # int type
             try:
                 year = int(year)
@@ -211,114 +203,109 @@ def paper_graph_information(driver: webdriver, sqlite: Sqlite, wait_time, log: L
             abstract = div.text.strip()
             abstract = abstract.replace('"', '')
             abstract = abstract.replace('\n', '')
-            # 翻译
+            # Translate
             abstract_zh = baidu_trans(abstract)
             # print(abstract)
             # print(driver.find_element(By.XPATH, '//*[@id="desktop-app"]/div[2]/div[3]/div[3]/div/div[2]/div[6]/text()'))
             paper_info.append(abstract)
 
-            # 加入翻译
+            # Add translation
             paper_info.append(title_zh)
             paper_info.append(abstract_zh)
 
             sqlite.insert_paper(paper_info)
 
-        if len(paper_connection) != 41:
-            log.append(f'Warning(paper_graph_information): paper connection number is not 41!')
-            return False
+            if len(paper_connection) != 41:
+                log.append(f'Warning(paper_graph_information): paper connection number is not 41!')
+                return False
 
-        # 插入
-        sqlite.insert_connection(paper_connection)
-        print(sqlite.select_connection_from_graph(paper_connection[0]))
-        # 返回信息
-        return sqlite.select_connection_from_graph(paper_connection[0])
+            # Insert
+            sqlite.insert_connection(paper_connection)
+            print(sqlite.select_connection_from_graph(paper_connection[0]))
+            # Return information
+            return sqlite.select_connection_from_graph(paper_connection[0])
 
-    except Exceptions.NoSuchElementException as _:
-        log.append(f'Warning(paper_graph_information): url failed(NoSuchElementException)')
-        return []
+            except Exceptions.NoSuchElementException as _:
+            log.append(f'Warning(paper_graph_information): url failed(NoSuchElementException)')
+            return []
 
-    except Exceptions.TimeoutException as _:
+        except Exceptions.TimeoutException as _:
         log.append(f'Warning(paper_graph_information): url failed(TimeoutException) {wait_time}')
         return []
 
+    def bfs(driver: webdriver, titles, iteration, sqlite: Sqlite, wait_time, check_func, log: Log):
+        """
+        :func Build a complete graph. When extending, decide whether to extend based on filtering conditions.
+        """
+        log.append('--- Start bfs() ---')
+        # driver_path = 'D:/downloads/chromedriver-win64/chromedriver.exe'
+        # options = webdriver.ChromeOptions()
+        # Configure page load strategy
+        # options.page_load_strategy = 'eager'
+        # options.add_experimental_option("useAutomationExtension", False)
+        # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        # driver = webdriver.Chrome(executable_path=driver_path, chrome_options=options)
 
-def bfs(driver: webdriver, titles, iteration, sqlite: Sqlite, wait_time, check_func, log: Log): #driver: webdriver,
-    """
-    :func 建图建完整，扩展的时候再根据筛选条件决定是否扩展
-    """
-    log.append('--- Start bfs() ---')
-    # driver_path = 'D:/downloads/chromedriver-win64/chromedriver.exe'
-    # options = webdriver.ChromeOptions()
-    # 配置页面加载策略
-    # options.page_load_strategy = 'eager'
-    # options.add_experimental_option("useAutomationExtension", False)
-    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    # driver = webdriver.Chrome(executable_path=driver_path, chrome_options=options)
+        for index, item in enumerate(titles):
+            if item[-1] == '.':
+                item = item[:-1]
+            # List as queue, set as visited, dict to record layer
+            queue, looked, layer = [item], set(item), {item: 0}
 
-    for index, item in enumerate(titles):
-        # print(f"kkkkk: {item}")
-        if item[-1] == '.':
-            item = item[:-1]
-        # 列表作为队列，集合作为已访问，字典记录层数
-        queue, looked, layer = [item], set(item), {item: 0}
+            while len(queue) > 0:
+                args = Args()
+                driver = args.driver
+                title = queue.pop(0)
+                log.append(f'Title: {index + 1}-{layer.get(title, 0) + 1}, {title}')
 
-        while len(queue) > 0:
-            args = Args()
-            driver = args.driver
-            title = queue.pop(0)
-            log.append(f'Title: {index + 1}-{layer.get(title, 0) + 1}, {title}')
-            # print("----------")
-            # 查找相邻节点
-            res = sqlite.select_connection_from_graph(title)
-            if len(res) == 0:
-                # 没有这个图，新建一个
-                # 浏览器驱动
-                res = build_graph_from_title(driver, title, sqlite, wait_time, log)
-                driver.close()
+                # Look for neighboring nodes
+                res = sqlite.select_connection_from_graph(title)
                 if len(res) == 0:
-                    # 真没有
-                    log.append(f'Warning: no connection: {title}')
-                    continue
-                else:
-                    log.append(f'Info: build finish.')
+                    # Graph not found, create a new one
+                    # Browser driver
+                    res = build_graph_from_title(driver, title, sqlite, wait_time, log)
+                    driver.close()
+                    if len(res) == 0:
+                        # Truly not found
+                        log.append(f'Warning: no connection: {title}')
+                        continue
+                    else:
+                        log.append(f'Info: build finished.')
 
-            # 查找相邻节点
-            nodes = res[0]
-            # 检测节点
-            for node in nodes:
-                if check_func(node):
-                    if node not in looked and node != title:
-                        # 子代
-                        # layer[node] = layer.get(title, 0) + 1
-                        if layer.get(title, 0) < iteration - 1:
-                            layer[node] = layer.get(title, 0) + 1
-                            queue.append(node)
-                            looked.add(node)
+                # Find neighboring nodes
+                nodes = res[0]
+                # Check nodes
+                for node in nodes:
+                    if check_func(node):
+                        if node not in looked and node != title:
+                            # Child node
+                            if layer.get(title, 0) < iteration - 1:
+                                layer[node] = layer.get(title, 0) + 1
+                                queue.append(node)
+                                looked.add(node)
 
+    def spider(args: Args):
+        # Log object
+        log = args.log
 
-def spider(args: Args):
-    # 日志对象
-    log = args.log
+        # Browser driver
+        driver = args.driver
 
-    # 浏览器驱动
-    driver = args.driver
+        # Database object
+        sqlite = Sqlite(args.database)
 
-    # 数据库对象
-    sqlite = Sqlite(args.database)
+        # Read title file
+        titles = []
+        with open(args.paper_title_file, 'r', encoding='utf-8') as r:
+            lines = r.readlines()
+            for line in lines:
+                if len(line.strip()) == 0:
+                    break
+                titles.append(line.strip())
+            print(titles)
 
-    # 读取目录文件
-    titles = []
-    with open(args.paper_title_file, 'r', encoding='utf-8') as r:
-        lines = r.readlines()
-        for line in lines:
-            if len(line.strip()) == 0:
-                break
-            titles.append(line.strip())
-        print(titles)
+        bfs(driver, titles, args.iteration, sqlite, args.wait_time, args.check_is_keyword_in_strings, log)
 
-    bfs(driver, titles, args.iteration, sqlite, args.wait_time, args.check_is_keyword_in_strings, log)
-
-    print("spider finish.")
-    driver.close()
-    pass
-
+        print("Spider finished.")
+        driver.close()
+        pass

@@ -17,7 +17,7 @@ class Write:
         self._result = self._sqlite.select_all_from_paper()
         self._header = self._sqlite.header
 
-        # 对结果按引用量排序
+        # Sort results by number of citations
         self._result = list(self._result)
         self._result.sort(key=lambda x: float(x[5]), reverse=True)
 
@@ -32,18 +32,21 @@ class Write:
         pass
 
     def to_excel(self):
-        self._log.append('Starting write to excel.')
+        self._log.append('Starting write to Excel.')
         target_workbook = openpyxl.Workbook(write_only=True)
         target_sheet = target_workbook.create_sheet('sheet0')
 
-        # 表头
-        header = ['title', 'author', 'year', 'journal', 'citations', 'year_citations', 'connected_papers_url', 'semantic_scholar_url', 'publisher_page_url', 'abstract']
+        # Header
+        header = ['title', 'author', 'year', 'journal', 'citations', 'year_citations',
+                  'connected_papers_url', 'semantic_scholar_url', 'publisher_page_url', 'abstract']
         if self._is_zh:
-            header = ['title', 'author', 'year', 'journal', 'citations', 'year_citations', 'connected_papers_url', 'semantic_scholar_url', 'publisher_page_url', 'abstract', 'title_zh', 'abstract_zh']
+            header = ['title', 'author', 'year', 'journal', 'citations', 'year_citations',
+                      'connected_papers_url', 'semantic_scholar_url', 'publisher_page_url',
+                      'abstract', 'title_zh', 'abstract_zh']
 
         target_sheet.append(header)
 
-        # 写入
+        # Write data
         if self._is_zh:
             for item in self._result:
                 if self._check_func(item[0]):
@@ -52,21 +55,21 @@ class Write:
             for item in self._result:
                 if self._check_func(item[0]):
                     item = list(item)
-                    item = item[:-2]
+                    item = item[:-2]  # Remove Chinese fields
                     target_sheet.append(item)
 
         target_workbook.save(self._excel_file)
         pass
 
     def to_markdown(self):
-        self._log.append('Starting write to markdown.')
+        self._log.append('Starting write to Markdown.')
 
-        # 索引
+        # Column indices
         header = {'title': 0, 'author': 1, 'year': 2, 'journal': 3, 'citations': 4, 'year_citations': 5,
-                  'connected_papers_url': 6, 'semantic_scholar_url': 7, 'publisher_page_url': 8, 'abstract': 9,
-                  'title_zh': 10, 'abstract_zh': 11}
+                  'connected_papers_url': 6, 'semantic_scholar_url': 7, 'publisher_page_url': 8,
+                  'abstract': 9, 'title_zh': 10, 'abstract_zh': 11}
 
-        # 写入
+        # Write to markdown
         sign = 0
         with open(self._markdown, 'w', encoding='utf-8') as w:
             for item in self._result:
@@ -74,8 +77,8 @@ class Write:
                     continue
                 sign += 1
 
-                if self._is_zh:  # 标题、链接、引用，年均引用，作者、年份，期刊、中文标题、中文摘要
-                    strs = f'''### {sign}.{item[header.get('title')]}
+                if self._is_zh:  # Title, links, citations, year citations, authors, year, journal, Chinese title, Chinese abstract
+                    strs = f'''### {sign}.{item[header.get('title')]}}
 - {item[header.get('publisher_page_url')]}
 - {item[header.get('citations')]}, {item[header.get('year_citations')]}, {item[header.get('author')]}
 - {item[header.get('year')]}, {item[header.get('journal')]}
@@ -83,8 +86,8 @@ class Write:
 - {item[header.get('abstract_zh')]}
 
 '''
-                else:  # 标题、链接、引用，年均引用，作者、年份，期刊、摘要
-                    strs = f'''### {sign}.{item[header.get('title')]}
+                else:  # Title, links, citations, year citations, authors, year, journal, abstract
+                    strs = f'''### {sign}.{item[header.get('title')]}}
 - {item[header.get('publisher_page_url')]}
 - {item[header.get('citations')]}, {item[header.get('year_citations')]}, {item[header.get('author')]}
 - {item[header.get('year')]}, {item[header.get('journal')]}

@@ -10,7 +10,6 @@ class Sqlite(object):
         if not os.path.exists(database_file):
             need_create_table = True
 
-        # 文件不存在，会重新创建
         self._connect = sqlite3.connect(database_file)
         self._cursor = self._connect.cursor()
         self._table_name = 'paper'
@@ -67,7 +66,6 @@ class Sqlite(object):
         # print(header)
         # print(data)
 
-        # 查看表格信息
         # self._cursor.execute("PRAGMA table_info(paper)")
         # print(self._cursor.fetchall())
 
@@ -179,7 +177,7 @@ class Sqlite(object):
 
     def delete_title(self, title):
         """
-        func 同时删除详细信息和关系图
+        func : Delete both detailed information and relationship graph
         :param title:
         :return:
         """

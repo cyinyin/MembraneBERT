@@ -10,14 +10,14 @@ import selenium.common.exceptions as Exceptions
 
 
 def init_driver(address):
-    # 创建一个参数对象，用来控制chrome以无界面模式打开，反制selenium采取了监测机制，设置下载目录
+    # Create a Chrome driver with options, incognito mode, and disable automation flags
     chrome_options = Options()
     # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--incognito')
     chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument("--test-type")  # 禁用沙盒模式
-    chrome_options.add_argument("--disable-popup-blocking")  # 禁用弹窗阻止
-    # # 不加载图片, 提升速度
+    chrome_options.add_argument("--test-type")  # Disable sandbox mode
+    chrome_options.add_argument("--disable-popup-blocking")  # Disable popup blocking
+    # # Do not load images to improve speed
     # chrome_options.add_argument('blink-settings=imagesEnabled=false')
     chrome_options.add_experimental_option('excludeSwitches',
                                            ['enable-automation'])
@@ -26,7 +26,7 @@ def init_driver(address):
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
     try:
-        # 创建浏览器对象，Chrome驱动放在了Python一样的安装目录
+        # Create browser object, Chrome driver located at specified path
         service = Service(executable_path=address)
         driver = webdriver.Chrome(service=service, options=chrome_options)
         # driver = webdriver.Chrome(executable_path=address, chrome_options=chrome_options)
@@ -46,29 +46,29 @@ class Args:
         config = 'config.json'
         config = os.path.join(root_dir, config)
         if not os.path.exists(config):
-            print(f'error: without config file.')
+            print(f'error: config file not found.')
             raise None
 
-        # 处理文件参数
+        # Load configuration parameters
         with open(config, 'r', encoding='utf-8') as r:
             self.args_json = json.load(r)
 
-        # 浏览器驱动
+        # Browser driver
         self.driver = init_driver(self.args_json.get('driver'))
 
-        # 查找相关文献迭代次数
+        # Number of iterations to search related papers
         self.iteration = self.args_json.get('iteration', 1)
 
-        # 过滤关键词
+        # Filter keywords
         self.filter_keywords = self.args_json.get('filter-keywords', list())
 
-        # 等待时间
+        # Wait time
         self.wait_time = self.args_json.get('wait-time', 3)
 
-        # 翻译成中文
+        # Translate to Chinese
         self.is_zh = True if self.args_json.get('is-zh', 0) == 1 else False
 
-        # 论文标题合集文件
+        # Paper title collection file
         self.paper_title_file = self.args_json.get('title-file', 'test.txt')
         paper_title_file_name = self.paper_title_file[:-4]
         paper_file_dir = os.path.join(root_dir, paper_title_file_name)
@@ -77,15 +77,15 @@ class Args:
 
         self.print_args()
 
-        # 输出文件
+        # Output files
         zh = '-zh' if self.is_zh else ''
         self.excel_file = os.path.join(paper_file_dir, f'{paper_title_file_name}{zh}.xlsx')
         self.markdown = os.path.join(paper_file_dir, f'{paper_title_file_name}{zh}.md')
 
-        # 当前主题数据库
+        # Database for current topic
         self.database = os.path.join(paper_file_dir, 'database.db')
 
-        # 日志文件
+        # Log file
         self.log = os.path.join(paper_file_dir, 'log.txt')
         self.log = Log(self.log)
 
@@ -101,7 +101,7 @@ class Args:
 
     def check_is_keyword_in_strings(self, title):
         """
-        :func 是并的关系，即所有的关键词都要在标题中出现
+        :func AND relation: all keywords must appear in the title
         :param title:
         :return:
         """
@@ -132,7 +132,7 @@ class Log:
 
 if __name__ == "__main__":
     args = Args()
-    # ["predict", "solubility"],
+    # Example keywords: ["predict", "solubility"]
     key = 'metal'
     print(args.check_is_keyword_in_strings(key))
     pass
