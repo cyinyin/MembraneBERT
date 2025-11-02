@@ -1,0 +1,6 @@
+.idea
+__pycache__
+.DS_Store
+protein-solubility
+protein-solubility.txt
+unit/bib.py

@@ -1,0 +1,8 @@
+{
+    "title-file": "metal_organic_membrane.txt",
+    "driver": "D:\\chromedriver-win64\\chromedriver.exe",
+    "iteration": 1,
+    "filter-keywords": ["metal"],
+    "wait-time": 300,
+    "is-zh": 0
+}
