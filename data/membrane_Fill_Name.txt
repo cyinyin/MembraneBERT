@@ -1,0 +1,59 @@
+(PBI)
+Bio-MOF-1
+C-MOF-5
+CA/γ -CD-MOF
+CAU-1
+CNT
+CNTs
+CO2-philic properties
+COOH
+CS
+Cu3 ( BTC ) 2
+CuBDC-ns
+EDD-ZIF-8
+GO
+H_ZIF-8
+LOYMET
+MIL-53
+MOF
+MOF-5
+Matrimids5218
+NH2-UiO-66
+NH2-ZIF-8
+OPS loading
+P-MIL-53
+PANI @ CNTs
+PANI @ CNTs-GO
+PMS
+Pebax
+S-GO nanosheets
+SIFSIX-3-Zn/PIM-1
+SNW-1
+TEPA-MIL-101
+UiO-66(Zr)
+UiO-66-NH2
+UiO-66-PEI @ pSBMA
+ZIF-11
+ZIF-301
+ZIF-62
+ZIF-62 particles
+ZIF-67
+ZIF-67 nanofillers
+ZIF-7
+ZIF-8
+ZIF-8 @ GO
+ZIF-8/6FDA-DAM:DABA(4:1)
+ZIF-8@GO
+ZPGO67
+Zr-fum-fcu-MOF
+amine-functionalized metal-organic framework ( MOF )
+chloroform
+cross-linker
+functionalized silica microspheres
+hybrid
+hyperbranched polyethylenimine functionalized graphene oxide ( HPEI-GO )
+metal organic framework-MIL-53
+polysulfone ( PSf ) matrix
+pyrazole functionalized SBA-16 type mesoporous silica
+silicalite-1
+two-dimensional Cu-BDC

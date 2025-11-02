@@ -1,0 +1,288 @@
+( 4 : 1 ) / ZIF-8
+(Co) NaY/CA composite membranes
+(PMOF-5)
+10 wt% CeBTB/6FDA - DAM membrane
+10 wt% SIFSIX-3-Zn/PIM-1 MMMs
+14% ZIF-7-OH-Pebax MMM
+14-µm-thick MOF-5 membrane
+15 wt . %
+15 wt . % CuTPA-PVAc MMMs
+16 wt% HKUST-1 MMM
+16 wt% silicalite-1
+20 wt% ZIF-301/6FDA-DAM MMM
+200-nm-thick ZIF-8/CNT membrane
+2D Zn2 ( bim ) 3 membrane
+30 wt% PEI-CAU-1/XLPEO membrane
+30/70 (w/w) ZIF-8/PBI membrane
+3A-zeolite PU-Z24
+4 wt . % UZAR-S1-PSF MMM
+4A-zeolite PU-Z24
+5 wt . % - Bulk @ PIM-1
+5 wt . % - Ns @ PIM-1
+50ZN71 - 10H
+60/40 (w/w) ZIF-8/PBI membrane
+6FDA – DAM :
+6FDA – DAM : DABA ( 4 : 1 ) hollow ﬁber membranes
+6FDA-based polyimide — 6FDA – DAM : DABA ( 4 : 1 )
+8 wt . % MSS – PSF MMMs
+@ GO-6
+AC
+ACOF-1 membrane
+Al-BDC
+AlPO-18 membranes
+Bulk @ PIM-1
+C/O – T MMM
+CA
+CAU-1 membrane
+CECYOY
+CHA membranes
+CM-0
+CM-1 (UiO-66-NH2/CNF-COOH)
+CM-1 COOH)
+CM-1 membrane
+CM-2
+COF-LZU1-ACOF-1 membrane
+Co-IM-mIM
+Co-IM-mIM membrane
+Co-NIC
+Co-ZIF-67 tubular membrane
+Co3(HCOO)6 membrane
+Cu3 ( BTC ) 2/Matrimids5218-30
+Cu3 ( BTC ) 2/ODPA – TMPDA MMMs
+Cu3(BTC)2
+CuBTC/MIL-100 membranes
+DAM:DABA(4:1)
+EC/ZIF-8@GO membrane
+ENACT-derived ZIF-8 membrane
+FIQCEN
+GIWNUV
+GO membranes
+GUPFAZ
+GUPFAZ60
+HKUST-1
+HKUST-1 membrane
+HKUST-1/PSF
+HKUST-1/ZIF-8/PSF hybrid membranes
+HPEI-GO/CS-PVAm/PS membranes
+IL@COF-300/Pebax
+ITTB
+JUC-150 membrane
+M1
+M2
+M2–M4
+MIL-101
+MIL-68(Al)/Matrimid MMM
+MIL-68(Al)/Matrimid MMMs
+MMHFM
+MMM
+MMM(35%)
+MMMs
+MOF
+MOF-177
+MOF-5
+MOF-801/PIM-1 MMMs
+MOF/PIM-1 MMMs
+MOF/polymer MMMs
+MOF/polymer MMMs 16
+MWCNTs/PEG/CA composite membranes
+Matrimid/ ZIF-8
+Matrimid/(Pd@ZIF-8)
+Matrimid@ 5218/ZSM-5 MMM
+Matrimids - CNTs/GO-5/5
+Matrimid®5218 mixed matrix membranes
+Mg-MOF-74
+Mixed matrix membranes
+Mobile Five (MFI) zeolite membranes
+NH2-MIL-53(Al)
+NIZNOB
+Neat PVC-g-POEM graft copolymer membrane
+Ni-MB membrane
+Ni-MOF-74
+Ni3(HITP)2
+OPS/PDMS MMMs
+P [vbim] [NTf2] / [emim] [B(CN)4] / ZIF-8
+P [vbim] [NTf2] / [emim] [B(CN)4] / ZIF-8 system
+P [vbim] [NTf2] / [emim] [NTf2] / ZIF-8
+P-CNT - 1.0
+P-CNT-1
+P-CNT-1.0
+P-CNTs NF ( 30 )
+PAO-PIM-1 membrane
+PAO-PIM-1/UiO-66
+PAVLUU
+PDMS hybrid membranes
+PDMS/P-MIL-53 composite layer coated membrane
+PES/SAPO-34 MMM
+PES/SAPO-34/[emim][Tf2N] ternary MMM
+PI/UiO-66-PEI @ pSBMA-15 membrane
+PI/ZSM- 5/[C4mim][Tf2N] ternary MMM
+PIM-1
+PIM-1 based ultrathin MMMs
+PIM-1/NH2-UiO-66 membranes
+PIM-1/ZIF-8 MMMs
+PIM-6FDA-OH
+PIM-Trip-TB
+PIM-based hybrid membrane
+PIMs membrane
+PMOF-5
+PSf based MMMs
+PSf with A @ S/ZIF-8 MMMs
+PSf – Z MMMs
+PSf – ZS MMM
+PTM-5 membrane
+PU
+PU/γ-CD-MOF
+PU/γ-CD-MOF (0.2 wt% )
+PU/γ-CD-MOF (0.4 wt% )
+PU/γ-CD-MOF 0.2 wt%
+PUU–HDC–2.5 membrane
+PVAm/COF membrane
+PVAm/PANI @ CNTs-GO MMM
+PVAm/PANI @ CNTs-GO MMMs
+PVC-g-POEM
+PZ-1
+PZ-2
+PZ-3
+P[vbim][NTf2]/[emim][B(CN)4]
+P[vbim][NTf2]/[emim][B(CN)4]/ZIF-8 system
+P[vbim][NTf2]/[emim][NTf2]
+PdOAc₂/CA composite membranes
+Pebax 1657/.5%Ag/50%IL ternary MMM
+Pebax membrane
+Pebax neat membrane
+Pebax-15%-Cu-BTC/PSF
+Pebax-15%-NH2-Cu-BTC/PSF
+Pebax-15%Cu-BTC/PSF
+Pebax-15%NH2-Cu-BTC/PSF
+Pebax/MIL-101
+Pebax/MIL-101-15 wt
+Pebax/MWCNTs MMMs
+Pebax/NH2-MIL-101 membrane
+Pebax/NH2-MIL-101-5 wt.% membrane
+QAPQAA
+QUKYOL
+S1C/PSF
+SAHYIK
+SAPO-17 membranes
+SAPO-34 ( CHA-type ) membranes
+SAPO-34 membrane
+SAPO-34 membranes
+SPEEK/S-GO membrane
+SPEEK/SiO2-S membrane
+SPEEK/TiO2-DA-PEI membranes
+TB - 20% NH2-MIL-53 MMMs
+TB-20 % NH2-MIL-53 membrane
+TB-OR
+TB-OR membranes
+TFCHFMs
+TFN membrane
+TFN membranes
+TR-PBO membranes
+TSIL @ NH2-MIL-101 ( Cr ) / PIM-1 membrane
+Ti3 ℃ 2Tx membrane
+UiO-66-NH2/PA-0.02
+UiO-66-NH2/PA-0.1
+Ultrathin TR-polybenzoxazole-co-imide membranes
+ZIF-100 membrane
+ZIF-22 membranes
+ZIF-301/6FDA-DAM MMM
+ZIF-62 glass membranes
+ZIF-62 glass/6FDA-DAM composite membranes
+ZIF-62 nano-glass particles
+ZIF-62/CA composite membrane
+ZIF-67
+ZIF-67 membrane
+ZIF-67/GO membrane
+ZIF-69
+ZIF-7 membrane
+ZIF-7 membranes
+ZIF-7-8
+ZIF-7-OH-Pebax MMM
+ZIF-7/Pebaxs1657 MMMs composite membranes
+ZIF-8
+ZIF-8 crystalline membrane
+ZIF-8 membrane
+ZIF-8/CNT membrane
+ZIF-8/GO
+ZIF-8/GO molecular sieving membranes
+ZIF-8/PBI nano-composite membranes
+ZIF-8/PSF
+ZIF-8/rGO membranes
+ZIF-8@GO
+ZIF-8@GO MMMs
+ZIF-8@GO membranes
+ZIF-8@PD-PI(20%) membrane
+ZIF-90 membrane
+ZIF-90 membranes
+ZIF-[6]-CA composite membrane
+ZIF-[8]-CA composite membrane
+ZIFs/PBI dense membrane
+ZSM-5zeolite PU-Z24
+Zn-CD membranes
+Zn2 ( bim ) 4 membrane
+[Cu(INA)2]
+[HO2C]100%-H2P-COF
+[HO]100%-H2P-COF
+[Ni3(HCOO)6]
+aluminophosphate LTA ( AlPO-42 ) membranes
+aminated SBA-15 on styrene - butadiene-styrene MMMs
+as-synthesized SPEEK/PEI @ MIL - 101 ( Cr ) MMMs
+asymmetric membranes
+calcinated Al-BDC
+chemically-imidized neat membrane
+chitosan ( CS ) / poly ether-block-amide ( Pebax ) blends
+glassy polymeric membranes
+hollow yttria-stabilized zirconia (YSZ) ﬁber-supported
+homogenous membrane
+i-PMS MMMs
+in-situ generated PMS-based MMMs ( i-PMS MMMs ) possess
+lab-scale TR polymer hollow fiber membranes
+membrane
+membranes
+mixed matrix hollow fiber membrane
+nano-composite membrane
+nanocomposite MFI-alumina tubular membranes
+neat 6FDA-ODA
+neat 6FDA-ODA membrane
+neat 6FDA-durene membrane
+neat Pebax membrane
+neat Pebax polymer membrane
+optimized c-oriented membrane
+parent PA membrane
+parent polyamide membrane
+performance.CM-3 composite membrane
+poly(4-methyl-1-pentyne)/MIL-53 MMM
+poly(RTIL)/SAPO-34 MMM
+poly(RTIL)/[emim][Tf2N]/SAPO-34 ternary MMM
+poly([SMIM][Tf2N])/SAPO-34/[emim][Tf2N] system
+pristine CA membrane
+pristine ITTB
+pristine PIM-1 membrane
+pristine PU
+pristine PVAm membrane
+pristine SPEEK membrane
+pure Co-ZIF-67 tubular membrane
+pure MOF membrane
+pure MOF membranes
+pure PDMS coated membrane
+pure PI
+pure PIM-1 membrane
+pure PVC-g-POEM membranes
+pure Pebax membranes
+pure Ultem HFM
+pyridine functionalized silica microspheres loaded MMMs
+ring-opened
+single-crystal ZIF-8 membranes
+soc-MOF
+soc-MOF membrane
+soc-MOF-IM membrane
+soc-MOF-IM polycrystalline membrane
+studies.bMOF-200
+ternary MMM
+thermally annealed 6FDA-DAM-based mixed matrix membranes
+thermally-imidized 6FDA-ODA
+three-layered bio-MOF ‑ 1 membrane
+ultra-microporous JUC-150 membrane
+ultrathin MoS2 membranes
+ultrathin ZIF-8/rGO membranes
+zeolitic imidazole framework-8 (ZIF8) membranes
