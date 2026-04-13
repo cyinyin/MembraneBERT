@@ -46,7 +46,7 @@ root
 The results will be saved in the . /outputs folder.
 
 ## Test model (See test.py for details):
- text = "The ZIF-301 exhibited a significantly higher permeance for H₂ compared to CH₄, resulting in an H2/CH4 selectivity of 12.5 at 25 °C and 1 bar,." ，膜分离信息为：
+ text = "The ZIF-301 exhibited a significantly higher permeance for H₂ compared to CH₄, resulting in an H2/CH4 selectivity of 12.5 at 25 °C and 1 bar,." ，the membrane separation information is as follows：
 Exports (See extracted_record.json for details)：
 {
   "metadata": {
