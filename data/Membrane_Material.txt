@@ -1,19 +1,22 @@
-APTMS func ­ tionalized MCM-41 on acrylate derivatized PSf
+APTMS 
+MCM-41 
+PSf
 CA
 HIHJUF
 ITTB
-MFI-alumina hollow ﬁbers,
+MFI-alumina hollow ﬁbers
 MIL-53
 MMM
-Matrimid® matrix
+Matrimid
 PEI
 POTS-modiﬁed α-Al2O3
 PVAm
 UiO-66-(Hf) MOF
 Ultem1000
 YOZBIZ01
-ZIF-67 on ZIF-8
-amidoxime-functionalized PIM-1
+ZIF-67
+ZIF-8
+PIM-1
 hydroxyl groups
 polybenzimidazole
 polyimide matrix
